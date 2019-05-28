@@ -1,0 +1,157 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Bringing NWEA MAP Reports to Life with Google Data Studio!</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="data-studio"
+                  title="Bringing NWEA MAP Reports to Life with Google Data Studio!"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Introduction" duration="0">
+        <p>In this tutorial, you will learn how to use <a href="https://marketingplatform.google.com/about/data-studio/" target="_blank">Google Data Studio</a>, a free product of G Suite, to take your NWEA MAP combined data file and transform it into powerful data visualizations used to gain insights into student learning. </p>
+<p class="image-container"><img style="width: 624.00px" src="img/61f41003a700d61a.png"></p>
+<p>The above image shows the steps we will take to reach a final Data Studio report. We will start by helping you gain access to a fake data set that will serve as your NWEA MAP combined data file. This will take the form of a Google Sheet. From there we will connect it to a <em>data source</em> mapping each field name to a field type such as <em>Text</em> or <em>Number.</em> Once we have our data source configured, we will create a report mapping those fields to chart elements.</p>
+<p>--------------------</p>
+<p><strong>Authors:<br></strong>Megan Benay<br>Director of Inclusive Education and Data Systems &amp; Strategy<br>Great Oaks Foundation</p>
+<p>Marcos Alcozer<br>Project Director for DataViz Starter Pack<br>InnovateEDU<br><a href="https://datavizstarterpack.org/" target="_blank">https://datavizstarterpack.org/</a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Combined Data File" duration="0">
+        <p>Before we dive into Google Data Studio itself, you will need to locate your NWEA MAP combined data file. The <a href="https://teach.mapnwea.org/impl/maphelp/Content/Data/DataExportHowto.htm" target="_blank">Data Export Scheduler</a> in MAP allows you to export this file either as a one time export or on a regular schedule. Please locate this file if you&#39;d like to complete the tutorial using your school&#39;s data.</p>
+<p>We also have a sample combined data file with fake student data should you want to use that one for now. Clicking on the button below will cause Google to prompt you to make a copy of the sample data set for this tutorial.</p>
+<p><a href="https://docs.google.com/spreadsheets/d/11Lna2T93GQcFEo0N6cbhIIbKht8c5UZixgAWB1i_B10/copy" target="_blank"><paper-button class="colored" raised>Copy Google Sheet</paper-button></a></p>
+<aside class="special"><p><strong>Advanced Users</strong></p>
+<p>If you are an advanced user who is comfortable with writing code. Our friends at KIPP Team Public Schools have published a great Python wrapper for the NWEA MAP API: <a href="https://github.com/TEAMSchools/nwea" target="_blank">https://github.com/TEAMSchools/nwea</a>. This will help you get started with automating the integration of your NWEA MAP export into your reporting environment.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Creating a Data Source" duration="0">
+        <p>Now that you have a data set, we want to connect it to Google Data Studio as a data source. For a data set, this only needs to be completed once. This is because a data source can be used in multiple reports. If you decide to create a second NWEA MAP report later on, you can reuse this data source without needing to create a new one.</p>
+<ol type="1" start="1">
+<li>Sign into <a href="https://datastudio.google.com/" target="_blank">Google Data Studio</a></li>
+<li>Click on <img style="width: 83.09px" src="img/d3b441501e4d1e00.png"> along the left hand side</li>
+<li>Click <img alt="Create new report or data source." title="Create new report or data source." style="width: 31.45px" src="img/e3b5ae2d187f3b2c.png"> to create a new data source</li>
+<li>Find the Google Sheets connector and click &#34;Select&#34;</li>
+<li>Find your data set and click <img style="width: 77.94px" src="img/2680316a57dce2be.png"></li>
+</ol>
+<p>This will take you to a page where you can define the fields in the data set. On this page you can rename fields, change the field type, and set the default aggregation type. Take some time to rename fields and change field types if necessary and then click <img style="width: 95.48px" src="img/37381768312e6f02.png">. Data Studio will create a new report for you and confirm they are adding your new data source to this report.</p>
+<aside class="special"><p><strong>Tip</strong></p>
+<p>Do not stress too much around field names and types. Chances are they already look OK and they can always be changed later on.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Reporting Interface" duration="0">
+        <p>If you have experience with the G Suite, you&#39;ll likely be familiar with most of the interface of Google Data Studio.</p>
+<p class="image-container"><img style="width: 624.00px" src="img/8d63b960ffbd8b79.png"></p>
+<h3 is-upgraded>Resource Menu</h3>
+<p>If you ever need to return to the data sources screen to modify field names and data types, this is where you want to go. Resource → Manage added data sources.</p>
+<h3 is-upgraded>Charting Elements</h3>
+<p>The report canvas can include text, images, and (of course) charts. This toolbar will give you quick access to all of your options. We will learn about the column chart in the next step of this tutorial. You should take time later to explore all charts available. Data Studio makes it easy to play with charts and delete them if they are not working. Full chart references can be found on <a href="https://support.google.com/datastudio/topic/7059081?hl=en&ref_topic=6291037" target="_blank">Google&#39;s support site</a>.</p>
+<h3 is-upgraded>Layout and Theme</h3>
+<p>You&#39;ll see in the next step that when working with specific charts, the sidebar will transform to be your one stop shop for configuring that chart.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Creating Your First Chart" duration="0">
+        <p>Let&#39;s dive in and create your first chart! When creating a chart, it&#39;s important to consider the type of information you want to show and how the underlying data is structured. We&#39;ll start with a simple data table.</p>
+<ol type="1" start="1">
+<li>Click <strong>Add a chart</strong> and select the <strong>Table chart</strong></li>
+<li>This will add a data table to your report canvas. Go ahead and resize it so it is larger on the canvas.</li>
+<li>Once the data table has been created, you&#39;ll notice that Google Data Studio pre-fills the chart with data from your data source and a sidebar opens on the right of the screen.</li>
+<li>Configure the data table to match the image below.</li>
+</ol>
+<p class="image-container"><img style="width: 541.50px" src="img/49e0a7ac0bbd1cab.png"></p>
+<aside class="special"><p><strong>Dimensions and Metrics</strong></p>
+<p>To help you remember when to make a field a dimension and when to make it a metric, remember &#34;dimensions describe and metrics measure.&#34; If you need to aggregate a number, it&#39;s a metric. If it is a normal column, it&#39;s a dimension.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Stacked Bar Chart" duration="0">
+        <p>The next chart we are going to look at is the stacked bar chart. We want to look at how students performed at the goals level for each test. Here is what our end result will look like:</p>
+<p class="image-container"><img style="width: 624.00px" src="img/778b43e1566678ce.png"></p>
+<h2 is-upgraded>Page Filter</h2>
+<p>We&#39;ll start by filtering the page to only show data for the NWEA MAP Reading assessment. Head to <strong>Page</strong>, <strong>Current page settings</strong> to access the Current Page Settings sidebar. Click <strong>Select Data Source</strong> and choose the combined data file source we started with earlier in this tutorial. Next click <strong>Add a filter</strong> to add a page filter. We want to create a filter that only includes data where <em>Discipline</em> shows <em>Reading.</em></p>
+<p class="image-container"><img style="width: 624.00px" src="img/6579db08df94e84e.png"></p>
+<h2 is-upgraded>Add Your Chart</h2>
+<p>We&#39;re now ready to draw our chart. Click on <strong>Add a Chart</strong> and select the <strong>100% stacked bar chart</strong> under the <strong>Bar</strong> section. We want the chart configured to include:</p>
+<ul>
+<li>Dimension: Goal1Name</li>
+<li>Breakdown Dimension: Goal1Adjective</li>
+<li>Metric: Goal1Adjective</li>
+<li>Sort: Goal1Name</li>
+<li>Secondary Sort: Goal1Adjective (Ascending)</li>
+</ul>
+<p>Hover over the metric and click the <em>pencil </em>icon to configure the metric to display each performance level as a percentage of the total.</p>
+<p class="image-container"><img style="width: 313.87px" src="img/8ec7636d4014ed95.png"></p>
+<h2 is-upgraded>Configure your chart colors</h2>
+<p>We can customize the colors we are using in the bar chart by using the <em>Style </em>section to the right. Select <strong>Dimension values </strong>under <strong>Color by. </strong>Clicking on <strong>Manage dimension value colors </strong>will allow you to select the color for each performance band level.</p>
+<p class="image-container"><img style="width: 295.50px" src="img/cf8baedb51e6b4de.png"></p>
+<h2 is-upgraded>Rinse and Repeat</h2>
+<p>Copy and paste your chart to create one for each additional goal. For example, you&#39;ll swap out Goal1 for Goal2 wherever you see it under the sidebar to the right. You&#39;ll notice in the image below we&#39;ve also hidden the <em>legend </em>for each additional chart using the <em>Style </em>menu on the sidebar.</p>
+<p class="image-container"><img style="width: 624.00px" src="img/143d7cdfa0145d8a.png"></p>
+<p><strong>Related Data Studio Support Articles:</strong></p>
+<p><a href="https://support.google.com/datastudio/answer/7326859?hl=en&ref_topic=7327560" target="_blank">https://support.google.com/datastudio/answer/7326859?hl=en&amp;ref_topic=7327560</a></p>
+<aside class="special"><p><strong>Advanced Users</strong></p>
+<p>100% stacked bars are a great way to show distributions of students by performance level, grade level, or some other category when comparing proportions and not counts.  If you have a time dimension, try out the stacked area chart to show how those distributions change over time! </p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Sharing" duration="0">
+        <p>Sharing is the same as any Google Drive file! Whether you are in edit mode or view mode, you will see this icon <img style="width: 26.50px" src="img/605cc35ba39df7a7.png"> at the top of the page. You will be presented with the same share box available across many Google Products. You can decide to share individually, with a group, or create a shareable link.</p>
+<p class="image-container"><img style="width: 452.50px" src="img/d7a6300eb5758c67.png"></p>
+<aside class="special"><p><strong>Advanced</strong></p>
+<p>In addition to having a shareable link to share your reports, you can also generate thumbnails of any Google Data Studio report. This will make it easy to, say, create a Google Site with a report library of clickable thumbnails for your users to interact with. All you have to do is view the report and append <em>/thumbnail?sz=s500 </em>at the end of the URL. Modifying the number at the end will allow you to change the thumbnail size. Google&#39;s official help article can be found <a href="https://support.google.com/datastudio/answer/9044629" target="_blank">here</a>.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Wrap up" duration="0">
+        <p>You&#39;re at the end! Hopefully you feel comfortable and understand how to bring data into Google Data Studio, create visualizations, and share those dashboards with users in your organization. In this Codelab we used Google Sheets as our data connector, but Data Studio supports at least a <a href="https://datastudio.google.com/datasources/create" target="_blank">dozen more</a> including Google Cloud SQL, BigQuery, Cloud Storage, MySQL, and PostgreSQL.</p>
+<p>We recommend that you keep an eye on the updates blog for <a href="https://support.google.com/datastudio/answer/6311467" target="_blank">Data Studio</a> as well as this is a beta project that is being developed at a rapid pace.</p>
+<h2 is-upgraded>Resources:</h2>
+<p><a href="https://www.datavizstarterpack.com/" target="_blank">https://www.datavizstarterpack.com/</a></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+
+</body>
+</html>

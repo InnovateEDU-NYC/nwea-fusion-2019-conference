@@ -1,0 +1,24 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2019-05-28T18:26:50Z",
+  "id": "data-studio",
+  "duration": 0,
+  "title": "Bringing NWEA MAP Reports to Life with Google Data Studio!",
+  "authors": "Marcos Alcozer, InnovateEDU \u0026 Megan Benay, Great Oaks Charter Schools",
+  "summary": "In this codelab, you'll be introduced to Google Data Studio",
+  "source": "1cqM5f2m3GQz_3cSgfBNN1Nej-j5IgEFzDmZVE05mqIw",
+  "theme": "google-data-studio",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "Google Data Studio"
+  ],
+  "tags": [
+    "data-studio"
+  ],
+  "url": "data-studio"
+}
